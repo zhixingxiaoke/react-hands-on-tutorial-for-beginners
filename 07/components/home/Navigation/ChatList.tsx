@@ -33,12 +33,12 @@ export default function ChatList() {
             updateTime: Date.now() - 1000 * 60 * 60 * 24 * 2
         },
         {
-            id: "5",
+            id: "6",
             title: "如何使用Next.js创建React项目",
             updateTime: Date.now() - 1000 * 60 * 60 * 24 * 2
         },
         {
-            id: "6",
+            id: "7",
             title: "如何使用Next.js创建React项目",
             updateTime: Date.now() - 1000 * 60 * 60 * 24 * 2
         },
