@@ -13,11 +13,12 @@ function Markdown({ children, className = "", ...props }: Options) {
                     return !inline ? (
                         <SyntaxHighlighter
                             {...props}
-                            children={String(children).replace(/\n$/, "")}
                             style={a11yDark}
                             language={match?.[1] ?? ""}
                             PreTag='div'
-                        />
+                        >
+                            {String(children).replace(/\n$/, "")}
+                        </SyntaxHighlighter>
                     ) : (
                         <code
                             {...props}
