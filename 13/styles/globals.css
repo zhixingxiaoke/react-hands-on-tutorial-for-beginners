@@ -34,11 +34,11 @@ body {
     background-color: rgb(236, 236, 241);
 }
 
-.dark::-webkit-scrollbar-thumb {
+.dark ::-webkit-scrollbar-thumb {
     background-color: rgb(86, 88, 105);
 }
 
-.dark::-webkit-scrollbar-thumb:hover {
+.dark ::-webkit-scrollbar-thumb:hover {
     background-color: rgb(172, 172, 190);
 }
 
