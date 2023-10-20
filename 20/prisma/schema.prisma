@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+model Chat {
+  id         String    @id @default(uuid())
+  title      String
+  updateTime DateTime  @updatedAt
+  Message    Message[]
+}
+
+model Message {
+  id         String   @id @default(uuid())
+  content    String
+  role       String
+  createTime DateTime @default(now())
+  chatId     String
+  chat       Chat     @relation(fields: [chatId], references: [id])
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./chatgpt-app.sqlite"
+}
