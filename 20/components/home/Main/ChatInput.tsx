@@ -82,6 +82,9 @@ export default function ChatInput() {
             content,
             chatId: chatIdRef.current
         })
+        if (!message) {
+            return
+        }
         dispatch({ type: ActionType.ADD_MESSAGE, message })
         const messages = messageList.concat([message])
         doSend(messages)
@@ -134,6 +137,10 @@ export default function ChatInput() {
             content: "",
             chatId: chatIdRef.current
         })
+        if (!responseMessage) {
+            controller.abort()
+            return
+        }
         dispatch({ type: ActionType.ADD_MESSAGE, message: responseMessage })
         dispatch({
             type: ActionType.UPDATE,
