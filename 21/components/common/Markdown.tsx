@@ -8,11 +8,13 @@ function Markdown({ children, className = "", ...props }: Options) {
     return (
         <ReactMarkdown
             components={{
-                code({ node, inline, className, children, ...props }) {
+                code({ node, className, children, ...props }) {
+                    //这里有改动
+                    //因为录教程的时候直接react-markdown是8.0.7版本，目前直接安装已经是9.0的版本了，接口有改动
+                    //所以这里改成了符合react-markdown9.0版本的写法。如果需要参考之前的版本，可以查看git历史。
                     const match = /language-(\w+)/.exec(className || "")
-                    return !inline ? (
+                    return match ? (
                         <SyntaxHighlighter
-                            {...props}
                             style={a11yDark}
                             language={match?.[1] ?? ""}
                             PreTag='div'
